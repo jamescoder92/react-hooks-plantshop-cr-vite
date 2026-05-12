@@ -19,10 +19,10 @@ function PlantCard({ plant, onUpdatePlant }) {
   }
 
   return (
-    <div className="plant-card">
+    <div className="plant-card" data-testid="plant-item">
       <img src={plant.image} alt={plant.name} />
       <h4>{plant.name}</h4>
-      <p>${plant.price.toFixed(2)}</p>
+      <p>Price: {plant.price}</p>
       <button
         className={soldOut ? "sold-out" : ""}
         onClick={handleSoldOutToggle}
