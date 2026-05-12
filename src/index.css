@@ -1,137 +1,154 @@
-:root {
-  --green: rgb(39, 189, 39);
-}
-
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
-  font-family: "Playfair Display", serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f9f4;
+  color: #2d3a2d;
 }
 
-h2 {
-  margin-bottom: 1rem;
+.plant-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
 }
 
-button {
-  padding: 0.25rem 1rem;
-  font-family: inherit;
-  border: none;
-  cursor: pointer;
+.plant-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 16px;
+  width: 220px;
+  text-align: center;
+  transition: transform 0.2s;
 }
 
-button.primary {
-  background-color: var(--green);
+.plant-card:hover {
+  transform: translateY(-4px);
+}
+
+.plant-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.plant-card h4 {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.plant-card p {
+  color: #5a8a5a;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.plant-card button {
+  background-color: #4caf50;
   color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
 }
 
-.app {
-  margin: 0 auto;
-  max-width: 1200px;
+.plant-card button.sold-out {
+  background-color: #aaa;
+  cursor: default;
+}
+
+.plant-card button:hover:not(.sold-out) {
+  background-color: #388e3c;
+}
+
+header {
+  background-color: #2e7d32;
+  color: white;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 header h1 {
-  font-size: 2.5em;
-  font-weight: 900;
-  text-align: center;
-  padding: 0.5rem 0;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
 }
 
-.logo {
-  font-size: 1.25em;
-  padding-left: 0.5rem;
-  color: transparent;
-  text-shadow: 0 0 0 var(--green);
-}
-
-main {
-  padding: 0 1rem;
-}
-
-.new-plant-form {
-  padding: 2rem 1rem;
-  margin: 2rem 0;
-  background-color: rgba(181, 250, 181, 0.5);
-}
-
-.new-plant-form form {
+.search-bar {
+  padding: 12px 24px;
+  background: #e8f5e9;
   display: flex;
   justify-content: center;
 }
 
+.search-bar input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 16px;
+  border: 2px solid #a5d6a7;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-bar input:focus {
+  border-color: #4caf50;
+}
+
+.new-plant-form {
+  background: white;
+  padding: 24px;
+  margin: 20px auto;
+  max-width: 480px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.new-plant-form h2 {
+  margin-bottom: 16px;
+  color: #2e7d32;
+}
+
 .new-plant-form input {
-  margin-right: 2rem;
-  flex: 1;
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  border: 2px solid #c8e6c9;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.new-plant-form input:focus {
+  border-color: #4caf50;
 }
 
 .new-plant-form button {
-  width: 150px;
-}
-
-.searchbar {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-}
-
-label {
-  font-weight: bold;
-  display: block;
-}
-
-input {
-  padding: 0.25rem;
+  background-color: #4caf50;
+  color: white;
   border: none;
-  font-family: inherit;
-  font-size: 1.2em;
-  border-bottom: 2px solid gray;
-  transition: all 0.2s;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
   width: 100%;
+  transition: background-color 0.2s;
 }
 
-input:focus {
-  outline: none;
-  border-bottom: 2px solid var(--green);
-}
-
-.cards {
-  list-style: none;
-}
-
-.card {
-  margin: 1rem;
-}
-
-.card img {
-  width: 100%;
-}
-
-.card button {
-  margin-top: 0.5rem;
-}
-
-@media (min-width: 768px) {
-  .cards {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .card {
-    width: calc(33% - 2rem);
-  }
-}
-
-@media (min-width: 1024px) {
-  .card {
-    width: calc(25% - 2rem);
-  }
-}
-
-@media (min-width: 1200px) {
-  .card {
-    width: calc(20% - 2rem);
-  }
+.new-plant-form button:hover {
+  background-color: #388e3c;
 }
